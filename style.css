@@ -165,7 +165,7 @@ h4 {
 }
 
 
-.actions button,button {
+.actions button, #modal-button {
     background-color: var(--secondary-background-color);
     border: none;
     border-radius: 10px;
