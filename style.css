@@ -204,7 +204,7 @@ h4 {
     display: none;
 }
 
-.add-form {
+form {
     background-color:var(--primary-color);
     margin: auto;
     padding: 25px;
@@ -214,7 +214,7 @@ h4 {
     flex-direction: column;
 }
 
-.add-form>div:first-child {
+form>div:first-child {
     display: flex;
     justify-content: space-between;
     padding-bottom: 40px;
