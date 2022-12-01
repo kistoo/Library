@@ -53,3 +53,129 @@ table {
 *::after {
   box-sizing: border-box;
 }
+
+/*font*/
+
+@import url('https://fonts.googleapis.com/css2?family=Anek+Devanagari&display=swap');
+
+/*style*/
+
+:root {
+    --primary-color: #475569;
+    --background-color: #f1f5f9;
+    --secondary-background-color: #cbd5e1;
+}
+
+
+html {
+    background-color: var(--background-color);
+}
+
+.container {
+    display: grid;
+    grid-template-rows: 1fr 10fr;
+    font-family: 'Anek Devanagari','Helvetica', sans-serif;
+}
+
+.header {
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 40px;
+    box-shadow: 0 3px 5px 1px #a1a1a1;
+}
+
+.header img, .header h1 {
+    filter: invert(86%) sepia(100%) saturate(7483%) hue-rotate(189deg) brightness(130%) contrast(94%);
+}
+
+.header img {
+    height: 60px;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 30px;
+}
+
+.content {
+    display: grid;
+    justify-content: center;
+    grid-template-rows: repeat(auto-fit,200px);
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.song {
+    width: 800px;
+    height: 150px;
+    background-color: var(--secondary-background-color);
+    border-radius: 30px;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    align-items: center;
+    padding: 30px;
+    padding-right: 0;
+}
+
+.song>img {
+    height: 100px;
+    border-radius: 10px;
+    justify-content: start;
+}
+
+.info {
+    align-self: start;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    font-weight: 800;
+    font-size: 28px;
+}
+
+h4, p {
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+h4 {
+    font-size: 20px;
+}
+
+.info p {
+    font-size: 14px;
+    margin-top: 18px;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: end;
+}
+
+.actions img {
+    height: 40px;
+}
+
+button {
+    background-color: var(--secondary-background-color);
+    border: none;
+    border-radius: 10px;
+    height: 100px;
+    width: 300px;
+    justify-self: center;
+    font-size: 40px;
+    color: var(--primary-color);
+}
+
+button:hover {
+    transition: 200ms ease-in-out;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
