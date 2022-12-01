@@ -161,7 +161,9 @@ h4 {
 
 .actions img {
     height: 40px;
+    width: 154px;
 }
+
 
 button {
     background-color: var(--secondary-background-color);
