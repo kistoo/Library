@@ -20,6 +20,68 @@ function addSongToLibrary(song){
     myLibrary.push(song);
 }
 
+function checkFields() {
+    let rightFields = 0;
+    inputNodeList.forEach(input => {
+        if (input.id === "youtube-link") {
+            if (checkLink()===true) {
+                rightFields++;
+            } else {
+                input.classList.add("error");
+            }
+        } else {
+            if (input.checkValidity()===true) {
+                rightFields++;
+            } else {
+                input.classList.add("error");
+            }
+        }
+    });
+    if (rightFields===4) {
+        let songData = [];
+        inputNodeList.forEach(input => {
+            if (input.id === "is-favourite") {
+                if (input.checked === true) {
+                    songData.push(true);
+                } else {
+                    songData.push(false);
+                }
+            } else {
+                songData.push(input.value);
+            }
+        })
+        const newSong = new Song(songData[0],songData[1],songData[2],songData[3]) 
+        console.log(newSong);
+    }
+
+}
+
+function checkLink() {
+    if (linkInput.value.includes("https://www.youtube.com/watch?v=")) {
+        removeError(linkInput);
+        return true;
+    } else {
+        linkInput.setCustomValidity("Please put a valid link");
+    }
+}
+
+function removeError(item) {
+    item.classList.remove("error");
+    item.setCustomValidity("");
+}
+
+const inputNodeList = document.querySelectorAll('input');
+inputNodeList.forEach(input => {
+    input.addEventListener("click", ()=>{
+        removeError(input);
+    });
+})
+
+const linkInput = document.getElementById('youtube-link');
+linkInput.addEventListener("input",()=>removeError(linkInput));
+const submitButton = document.getElementById('submit');
+submitButton.addEventListener("click",()=>checkFields());
+
 const coincidir = new Song("coincidir","macaco","https://www.youtube.com/watch?v=b3GyAtcoogc",true);
 addSongToLibrary(coincidir);
 
@@ -78,4 +140,3 @@ myLibrary.forEach(item => {
     document.getElementById('content').appendChild(button)
 
 });
-    
