@@ -176,7 +176,7 @@ h4 {
     color: var(--primary-color);
 }
 
-.actions button:hover {
+#modal-button:hover {
     transition: 200ms ease-in-out;
     background-color: var(--primary-color);
     color: var(--background-color);
