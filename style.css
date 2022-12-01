@@ -100,7 +100,7 @@ h1 {
     font-size: 30px;
 }
 
-.content {
+#content {
     display: grid;
     justify-content: center;
     grid-template-rows: repeat(auto-fit,200px);
