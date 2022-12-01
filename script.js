@@ -70,6 +70,16 @@ function removeError(item) {
     item.setCustomValidity("");
 }
 
+function openModal() {
+    modal.classList.remove("hide");
+    modal.classList.add("show");
+}
+
+function closeModal() {
+    modal.classList.remove("show");
+    modal.classList.add("hide");
+}
+
 const inputNodeList = document.querySelectorAll('input');
 inputNodeList.forEach(input => {
     input.addEventListener("click", ()=>{
@@ -81,6 +91,15 @@ const linkInput = document.getElementById('youtube-link');
 linkInput.addEventListener("input",()=>removeError(linkInput));
 const submitButton = document.getElementById('submit');
 submitButton.addEventListener("click",()=>checkFields());
+
+const modal = document.getElementById('modal');
+const closeModalButton = document.getElementsByClassName("close")[0];
+closeModalButton.onclick = function(){closeModal()}
+window.onclick = function(event) {
+    if (event.target == modal) {
+        closeModal();
+    }
+}
 
 const coincidir = new Song("coincidir","macaco","https://www.youtube.com/watch?v=b3GyAtcoogc",true);
 addSongToLibrary(coincidir);
@@ -135,8 +154,8 @@ myLibrary.forEach(item => {
 
     document.getElementById('content').appendChild(song);
     //moves add button to the bottom
-    const button = document.querySelector('button');
+    const button = document.getElementById('modal-button');
     button.remove();
-    document.getElementById('content').appendChild(button)
-
+    document.getElementById('content').appendChild(button);
+    button.addEventListener('click',()=>openModal());
 });
