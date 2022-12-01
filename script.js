@@ -95,7 +95,7 @@ function checkFields() {
                 addError(input);
             }
         } else {
-            if (input.value.length > 0) {
+            if (input.value.length > 0 || input.id==="is-favourite") {
                 rightFields++;
                 removeError(input);
             } else {
@@ -123,8 +123,18 @@ function checkFields() {
         displayLibrary();
         const button = document.getElementById('modal-button');
         button.disabled = false;
+        clearFields();
         closeModal();
     }
+}
+
+function clearFields() {
+    inputs.forEach(input=> {
+        input.value="";
+        if (input.id === "is-favourite") {
+            input.checked = false;
+        }
+    })
 }
 
 function checkLink() {
@@ -173,7 +183,7 @@ const modal = document.getElementById('modal');
 const closeModalButton = document.getElementsByClassName("close")[0];
 closeModalButton.onclick = function(){closeModal()};
 
-
+const inputs = document.querySelectorAll('input');
 
 const coincidir = new Song("coincidir","macaco","https://www.youtube.com/watch?v=b3GyAtcoogc",true);
 addSongToLibrary(coincidir);
