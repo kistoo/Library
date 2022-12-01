@@ -55,30 +55,32 @@
             </div>
 
             <button id="modal-button">+ add song</button>   
-            
-            <div id="modal" class="hide">
-                <form action="#" method="get">
-                    <div class="add-form">
-                        <div>
-                            <h1>Add new song</h1>
-                            <span class="close">&times;</span>
-                        </div>
-                        
-                        <label for="song-name">Song name</label>
-                        <input type="text" id="song-name" required>
-                        <label for="artist">Artist</label>
-                        <input type="text" id="artist" required>
-                        <label for="youtube-link">Youtube link</label>
-                        <input type="text" id="youtube-link" required>
-                        <div>
-                            <label for="is-favourite">Favourite</label>
-                            <input type="checkbox" id="is-favourite">
-                        </div>
-                        
-                        <button type="submit" id="submit">Add song</button>
-                    </div>
-                </form> 
+
         </div>
+
+        <div id="modal" class="hide">
+            <div class="add-form">
+                <form action="#" method="get">
+                    <div>
+                        <h1>Add new song</h1>
+                        <span class="close">&times;</span>
+                    </div>
+                    
+                    <label for="song-name">Song name</label>
+                    <input type="text" id="song-name" required>
+                    <label for="artist">Artist</label>
+                    <input type="text" id="artist" required>
+                    <label for="youtube-link">Youtube link</label>
+                    <input type="text" id="youtube-link" required>
+                    <div>
+                        <label for="is-favourite">Favourite</label>
+                        <input type="checkbox" id="is-favourite">
+                    </div>
+                    
+                    <button type="submit" id="submit">Add song</button>
+                </form>
+            </div>
+            
     </div>
 
     <script src="script.js" defer></script>
