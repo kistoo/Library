@@ -171,12 +171,7 @@ submitButton.addEventListener("click",()=>checkFields());
 
 const modal = document.getElementById('modal');
 const closeModalButton = document.getElementsByClassName("close")[0];
-closeModalButton.onclick = function(){closeModal()}
-window.onclick = function(event) {
-    if (event.target == modal) {
-        closeModal();
-    }
-}
+closeModalButton.onclick = function(){closeModal()};
 
 
 
