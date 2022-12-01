@@ -116,7 +116,7 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     align-items: center;
-    padding: 30px;
+    padding: 25px;
     padding-right: 0;
 }
 
@@ -155,17 +155,17 @@ h4 {
 .actions {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     justify-content: end;
 }
 
 .actions img {
-    height: 40px;
+    height: 30px;
     width: 154px;
 }
 
 
-.actions button, #modal-button {
+#modal-button {
     background-color: var(--secondary-background-color);
     border: none;
     border-radius: 10px;
