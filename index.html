@@ -54,7 +54,30 @@
                 </div>
             </div>
 
-            <button>+ add song</button>         
+            <button>+ add song</button>   
+            
+            <div id="modal">
+                <form action="#" method="get">
+                    <div class="add-form">
+                        <div>
+                            <h1>Add new song</h1>
+                            <span class="close">&times;</span>
+                        </div>
+                        
+                        <label for="song-name">Song name</label>
+                        <input type="text" id="song-name" required>
+                        <label for="artist">Artist</label>
+                        <input type="text" id="artist" required>
+                        <label for="youtube-link">Youtube link</label>
+                        <input type="text" id="youtube-link" required>
+                        <div>
+                            <label for="is-favourite">Favourite</label>
+                            <input type="checkbox" id="is-favourite">
+                        </div>
+                        
+                        <button type="submit" id="submit">Add song</button>
+                    </div>
+                </form> 
         </div>
     </div>
 
