@@ -6,3 +6,8 @@ function Song(name,artist,youtubeLink, isFavourite){
     this.youtubeLink = youtubeLink;
     this.isFavourite = isFavourite;
 }
+
+function addSongToLibrary(song){
+    myLibrary.push(song);
+}
+
