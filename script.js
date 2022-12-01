@@ -59,6 +59,10 @@ function displayLibrary() {
         playButton.src = "images/play-box.svg";
         playButton.alt = "youtube play icon";
         link.append(playButton);
+
+        const trash = document.createElement('img');
+        trash.src = "images/delete.svg";
+        trash.alt = "delete icon";
         
         song.appendChild(preview);
         song.append(info);
@@ -68,6 +72,7 @@ function displayLibrary() {
         song.append(actions);
         actions.append(isFavourite);
         actions.append(link);
+        actions.append(trash);
     
         content.appendChild(song);
         //moves add button to the bottom
