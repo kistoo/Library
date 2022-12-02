@@ -37,6 +37,7 @@ function orderByFavourites() {
 
 function displayLibrary() {
     orderByFavourites();
+    content.innerHTML = "";
     myLibrary.forEach(item => {
         const song = document.createElement('div');
         song.className = "song";
@@ -80,6 +81,7 @@ function displayLibrary() {
         const trash = document.createElement('img');
         trash.src = "images/delete.svg";
         trash.alt = "delete icon";
+        trash.className = "trash";
         
         song.appendChild(preview);
         song.append(info);
@@ -105,14 +107,16 @@ function displayLibrary() {
         button.addEventListener('click',()=>openModal());
     });
     editFavourite();
+    deleteSong();
 }
 
 function editFavourite() {
     const hearts = document.getElementsByClassName('heart');
     const favourites = Array.from(hearts);
-    favourites.forEach(favourite=> {
+    favourites.forEach(favourite => {
         favourite.addEventListener('click',()=>{
             toggleFavourite(favourite,favourites.indexOf(favourite));
+            displayLibrary();
         })
     })
 }
@@ -125,6 +129,17 @@ function toggleFavourite(img,id) {
         myLibrary[id].isFavourite = false;
         img.src = "images/cards-heart-outline.svg"
     }
+}
+
+function deleteSong () {
+    const deleteIcons = document.getElementsByClassName('trash');
+    const trashes = Array.from(deleteIcons);
+    trashes.forEach(trash => {
+        trash.addEventListener('click',()=>{
+            myLibrary.splice(trashes.indexOf(trash),1);
+            displayLibrary();
+        })
+    })
 }
 
 function checkFields() {
