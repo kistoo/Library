@@ -94,18 +94,19 @@ function displayLibrary() {
         actions.append(trash);
     
         content.appendChild(song);
-        //moves add button to the bottom
-        let button = document.getElementById('modal-button');
-        if (button === null) {
-            button = document.createElement('button');
-            button.setAttribute('id','modal-button');
-            button.textContent = "+ add song"; 
-        } else {
-            button.remove();
-        }
-        content.appendChild(button);
-        button.addEventListener('click',()=>openModal());
     });
+    //moves add button to the bottom
+    let button = document.getElementById('modal-button');
+    console.log("button")
+    if (button === null) {
+        button = document.createElement('button');
+        button.setAttribute('id','modal-button');
+        button.textContent = "+ add song"; 
+    } else {
+        button.remove();
+    }
+    content.appendChild(button);
+    button.addEventListener('click',()=>openModal());
     editFavourite();
     deleteSong();
 }
@@ -116,7 +117,7 @@ function editFavourite() {
     favourites.forEach(favourite => {
         favourite.addEventListener('click',()=>{
             toggleFavourite(favourite,favourites.indexOf(favourite));
-            displayLibrary();
+            displayLibrary()
         })
     })
 }
@@ -242,14 +243,5 @@ const modal = document.getElementById('modal');
 const closeModalButton = document.getElementsByClassName("close")[0];
 closeModalButton.onclick = function(){closeModal()};
 
-
-
-const coincidir = new Song("coincidir","macaco","https://www.youtube.com/watch?v=b3GyAtcoogc",false);
-addSongToLibrary(coincidir);
-const coincidir1 = new Song("coincidir","macaco","https://www.youtube.com/watch?v=b3GyAtcoogc",true);
-addSongToLibrary(coincidir1);
-const coincidir2 = new Song("coincidir","macaco","https://www.youtube.com/watch?v=b3GyAtcoogc",true);
-addSongToLibrary(coincidir2);
-const coincidir3 = new Song("coincidir","macaco","https://www.youtube.com/watch?v=b3GyAtcoogc",false);
-addSongToLibrary(coincidir3);
 displayLibrary();
+
