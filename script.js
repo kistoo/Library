@@ -20,6 +20,21 @@ function addSongToLibrary(song){
     myLibrary.push(song);
 }
 
+function orderByFavourites() {
+    let orderedList = [];
+    myLibrary.forEach(song=>{
+        if (song.isFavourite === true) {
+            orderedList.push(song);
+        }
+    })
+    myLibrary.forEach(song=>{
+        if (song.isFavourite === false) {
+            orderedList.push(song);
+        }
+    })
+    myLibrary = orderedList;
+}
+
 function displayLibrary() {
     myLibrary.forEach(item => {
         const song = document.createElement('div');
@@ -125,6 +140,7 @@ function checkFields() {
         const newSong = new Song(songData[0],songData[1],songData[2],songData[3]) 
         addSongToLibrary(newSong);
         content.innerHTML="";
+        orderByFavourites();
         displayLibrary();
         const button = document.getElementById('modal-button');
         button.disabled = false;
@@ -190,6 +206,6 @@ closeModalButton.onclick = function(){closeModal()};
 
 const inputs = document.querySelectorAll('input');
 
-const coincidir = new Song("coincidir","macaco","https://www.youtube.com/watch?v=b3GyAtcoogc",true);
+const coincidir = new Song("coincidir","macaco","https://www.youtube.com/watch?v=b3GyAtcoogc",false);
 addSongToLibrary(coincidir);
 displayLibrary();
