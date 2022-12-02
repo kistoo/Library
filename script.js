@@ -36,6 +36,7 @@ function orderByFavourites() {
 }
 
 function displayLibrary() {
+    orderByFavourites();
     myLibrary.forEach(item => {
         const song = document.createElement('div');
         song.className = "song";
@@ -65,6 +66,7 @@ function displayLibrary() {
             isFavourite.src = "images/cards-heart-outline.svg";
         }
         isFavourite.alt = "favourite icon";
+        isFavourite.className = "heart";
     
         const link = document.createElement('a');
         link.href = item.youtubeLink;
@@ -102,6 +104,27 @@ function displayLibrary() {
         content.appendChild(button);
         button.addEventListener('click',()=>openModal());
     });
+    editFavourite();
+}
+
+function editFavourite() {
+    const hearts = document.getElementsByClassName('heart');
+    const favourites = Array.from(hearts);
+    favourites.forEach(favourite=> {
+        favourite.addEventListener('click',()=>{
+            toggleFavourite(favourite,favourites.indexOf(favourite));
+        })
+    })
+}
+
+function toggleFavourite(img,id) {
+    if (myLibrary[id].isFavourite === false){
+        myLibrary[id].isFavourite = true;
+        img.src = "images/cards-heart.svg";
+    } else {
+        myLibrary[id].isFavourite = false;
+        img.src = "images/cards-heart-outline.svg"
+    }
 }
 
 function checkFields() {
@@ -140,7 +163,6 @@ function checkFields() {
         const newSong = new Song(songData[0],songData[1],songData[2],songData[3]) 
         addSongToLibrary(newSong);
         content.innerHTML="";
-        orderByFavourites();
         displayLibrary();
         const button = document.getElementById('modal-button');
         button.disabled = false;
@@ -195,6 +217,7 @@ inputNodeList.forEach(input => {
 
 const content = document.getElementById('content');
 
+const inputs = document.querySelectorAll('input');
 const linkInput = document.getElementById('youtube-link');
 linkInput.addEventListener("input",()=>removeError(linkInput));
 const submitButton = document.getElementById('submit');
@@ -204,8 +227,14 @@ const modal = document.getElementById('modal');
 const closeModalButton = document.getElementsByClassName("close")[0];
 closeModalButton.onclick = function(){closeModal()};
 
-const inputs = document.querySelectorAll('input');
+
 
 const coincidir = new Song("coincidir","macaco","https://www.youtube.com/watch?v=b3GyAtcoogc",false);
 addSongToLibrary(coincidir);
+const coincidir1 = new Song("coincidir","macaco","https://www.youtube.com/watch?v=b3GyAtcoogc",true);
+addSongToLibrary(coincidir1);
+const coincidir2 = new Song("coincidir","macaco","https://www.youtube.com/watch?v=b3GyAtcoogc",true);
+addSongToLibrary(coincidir2);
+const coincidir3 = new Song("coincidir","macaco","https://www.youtube.com/watch?v=b3GyAtcoogc",false);
+addSongToLibrary(coincidir3);
 displayLibrary();
