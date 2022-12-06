@@ -1,11 +1,13 @@
 let myLibrary = [];
 
-function Song(name,artist,youtubeLink, isFavourite){
-    this.name = name;
-    this.artist = artist;
-    this.youtubeLink = youtubeLink;
-    this.isFavourite = isFavourite;
-    this.addDate = getDate();
+class Song {
+    constructor (name,artist,youtubeLink, isFavourite) {
+        this.name = name;
+        this.artist = artist;
+        this.youtubeLink = youtubeLink;
+        this.isFavourite = isFavourite;
+        this.addDate = getDate();
+    }
 }
 
 function getDate() {
