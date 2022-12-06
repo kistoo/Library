@@ -244,6 +244,7 @@ submitButton.addEventListener("click",()=>checkFields());
 const modal = document.getElementById('modal');
 const closeModalButton = document.getElementsByClassName("close")[0];
 closeModalButton.onclick = function(){closeModal()};
+window.addEventListener('keydown', (e) => e.key==="Escape" ? closeModal() : "")
 
 displayLibrary();
 
